@@ -5,8 +5,10 @@ import { deepClone } from '@/utils'
 export type SettingKey = keyof Settings
 
 export function loadSettings(): Settings | undefined {
-  const settings = localStorage.getItem('settings')
-  return settings ? JSON.parse(settings) : undefined
+  // const settings = localStorage.getItem('settings')
+  // return settings ? JSON.parse(settings) : undefined
+  const _window = window as any
+  return _window.globalPreset.settings
 }
 
 const defaultSetting: Settings = Object.fromEntries(
