@@ -1,5 +1,3 @@
-import preset from '@/preset.json'
-import globalPreset from '@/preset_global.json'
 import type { Category, Group, Site, WebsitePreference } from '@/types'
 import { deepClone } from '@/utils'
 
@@ -11,7 +9,8 @@ export const useSiteStore = defineStore('site', () => {
   const settingStore = useSettingStore()
   const websitePreference = computed(() => settingStore.settings.websitePreference as WebsitePreference)
 
-  const preferredPresetData = computed(() => firstPreferredLanguage.value === 'zh-CN' ? preset.data : globalPreset.data)
+  const _window = window as any
+  const preferredPresetData = computed(() => firstPreferredLanguage.value === 'zh-CN' ? _window.preset.data : _window.globalPreset.data)
 
   // Custom data
   const customData = ref<Category[]>(loadData() || [])
@@ -22,9 +21,9 @@ export const useSiteStore = defineStore('site', () => {
   // Display data
   const data = computed((): Category[] => {
     if (websitePreference.value === 'ChineseMainland')
-      return preset.data
+      return _window.preset.data
     if (websitePreference.value === 'Global')
-      return globalPreset.data
+      return _window.globalPreset.data
     if (websitePreference.value === 'Auto')
       return preferredPresetData.value
 
