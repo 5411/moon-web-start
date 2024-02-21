@@ -3,7 +3,7 @@ import unocss from '@unocss/eslint-plugin'
 
 export default antfu(
   {
-    ignores: ['src/preset.json'],
+    ignores: ['public/data.js'],
   },
   unocss.configs.flat,
   {
