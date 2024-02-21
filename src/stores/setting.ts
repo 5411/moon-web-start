@@ -8,7 +8,7 @@ export function loadSettings(): Settings | undefined {
   // const settings = localStorage.getItem('settings')
   // return settings ? JSON.parse(settings) : undefined
   const _window = window as any
-  return _window.globalPreset.settings
+  return _window.settings
 }
 
 const defaultSetting: Settings = Object.fromEntries(

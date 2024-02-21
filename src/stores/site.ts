@@ -9,9 +9,6 @@ export const useSiteStore = defineStore('site', () => {
   const settingStore = useSettingStore()
   const websitePreference = computed(() => settingStore.settings.websitePreference as WebsitePreference)
 
-  const _window = window as any
-  const preferredPresetData = computed(() => firstPreferredLanguage.value === 'zh-CN' ? _window.preset.data : _window.globalPreset.data)
-
   // Custom data
   const customData = ref<Category[]>(loadData() || [])
   watch(customData, () => {
@@ -20,12 +17,13 @@ export const useSiteStore = defineStore('site', () => {
 
   // Display data
   const data = computed((): Category[] => {
+    const _window = window as any
     if (websitePreference.value === 'ChineseMainland')
-      return _window.preset.data
+      return _window.data
     if (websitePreference.value === 'Global')
-      return _window.globalPreset.data
+      return _window.data
     if (websitePreference.value === 'Auto')
-      return preferredPresetData.value
+      return _window.data
 
     // ? init custom data
     if (websitePreference.value === 'Customize' && customData.value.length === 0)
