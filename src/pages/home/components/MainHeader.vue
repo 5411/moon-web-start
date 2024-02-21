@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 
-const route = useRoute()
-const settingStore = useSettingStore()
+// const route = useRoute()
+// const settingStore = useSettingStore()
 
-function getIconClass(routeName: string) {
-  return {
-    'text-$primary-c opacity-100': routeName === route.name,
-  }
-}
+// function getIconClass(routeName: string) {
+//   return {
+//     'text-$primary-c opacity-100': routeName === route.name,
+//   }
+// }
 </script>
 
 <template>
@@ -19,8 +19,8 @@ function getIconClass(routeName: string) {
       </div>
     </RouterLink>
     <div flex gap-x-8>
-      <RouterLink v-if="settingStore.isSetting" :class="getIconClass('home')" to="/" i-carbon:home icon-btn />
-      <RouterLink v-else :class="getIconClass('setting')" to="/setting" i-carbon:settings icon-btn />
+      <!-- <RouterLink v-if="settingStore.isSetting" :class="getIconClass('home')" to="/" i-carbon:home icon-btn /> -->
+      <!-- <RouterLink v-else :class="getIconClass('setting')" to="/setting" i-carbon:settings icon-btn /> -->
       <div i-carbon:moon dark:i-carbon:light icon-btn @click="(e) => toggleDark(e)" />
     </div>
   </div>
