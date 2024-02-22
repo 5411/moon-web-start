@@ -18,6 +18,11 @@ export const useSiteStore = defineStore('site', () => {
   // Display data
   const data = computed((): Category[] => {
     const _window = window as any
+
+    // 剔除内网(第一项)
+    if (location.protocol === 'https:')
+      _window.data.shift()
+
     if (websitePreference.value === 'ChineseMainland')
       return _window.data
     if (websitePreference.value === 'Global')
