@@ -60,6 +60,6 @@ export type IconStyle = Partial<CSSStyleDeclaration>
 /* WebsitePreference */
 export type WebsitePreference = 'ChineseMainland' | 'Global' | 'Auto' | 'Customize'
 
-export type Language = 'zh-CN' | 'en' | 'ja' | 'System'
+export type Language = 'zh-CN' | 'en' | 'System'
 
 export type TagMode = 'Concise' | 'Full'
