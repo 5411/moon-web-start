@@ -15,7 +15,7 @@ import { RouterLink } from 'vue-router'
   <div px="0 md:24 lg:48" flex items-center justify-between pt-12>
     <RouterLink to="/">
       <div text="$primary-c" flex-center>
-        <span i-cus-moonset inline-block text-32 transition-300 hover="opacity-80" />
+        <span i-cus-logo inline-block text-32 transition-300 hover="opacity-80" />
       </div>
     </RouterLink>
     <div flex gap-x-8>

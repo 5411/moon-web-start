@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="https://github.com/jic999/sprout-admin-api">
-    <img alt="Moon Web Start" width="200" src="./public/favicon_neutral.svg">
+    <img alt="Moon Web Start" width="200" src="./public/favicon.svg">
   </a>
 </p>
 <p align="center">

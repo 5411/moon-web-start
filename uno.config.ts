@@ -34,7 +34,7 @@ export default defineConfig({
     presetIcons({
       scale: 1.2,
       collections: {
-        cus: FileSystemIconLoader('./public/svg'),
+        cus: FileSystemIconLoader('./public/images'),
       },
     }),
     presetScalpel(),

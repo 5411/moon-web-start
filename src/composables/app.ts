@@ -47,16 +47,6 @@ export function toggleDark(event: MouseEvent) {
     })
 }
 
-const preferredDark = usePreferredDark()
-
-watch(preferredDark, () => {
-  const favicon = document.querySelector('link[rel="icon"]')!
-  if (preferredDark.value)
-    favicon.setAttribute('href', '/favicon-dark.svg')
-  else
-    favicon.setAttribute('href', '/favicon.svg')
-}, { immediate: true })
-
 /* Screen */
 export const isXsScreen = useMediaQuery('(max-width: 639px)')
 
