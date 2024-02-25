@@ -33,7 +33,7 @@ const linkStrategyValue = computed(() => settingStore.getSettingItem('linkStrate
     <draggable
       class="flex flex-col gap-y-10"
       :list="siteStore.data[siteStore.cateIndex].groupList"
-      item-key="id"
+      item-key="name"
       handle=".group__handle"
       drag-class="dragging"
       :component-data="{
@@ -80,7 +80,7 @@ const linkStrategyValue = computed(() => settingStore.getSettingItem('linkStrate
           <div w-full>
             <draggable
               :list="siteStore.data[siteStore.cateIndex].groupList[i].siteList"
-              item-key="id"
+              item-key="name"
               group="site"
               handle=".site__handle"
               drag-class="dragging"

@@ -6,7 +6,7 @@ const siteStore = useSiteStore()
 
 const inputStatus = ref<'error' | 'success'>('success')
 
-const faviconMap = inject<Ref<Map<number, HTMLImageElement | HTMLDivElement>>>(FAVICON_MAP_SYMBOL)!
+const faviconMap = inject<Ref<Map<string, HTMLImageElement | HTMLDivElement>>>(FAVICON_MAP_SYMBOL)!
 
 function handleCommit() {
   if (
@@ -21,21 +21,21 @@ function handleCommit() {
   // 更新图标
   if (modalStore.target === 'site' && modalStore.action === 'update') {
     const site = siteStore.getCurrentSite()
-    const favicon = faviconMap.value.get(site.id)!
+    const favicon = faviconMap.value.get(site.url)!
 
     const parent = favicon.parentElement!
     const img = new Image()
 
     img.src = modalStore.inputValues.favicon || getFaviconUrl(modalStore.inputValues.url)
     img.onload = () => {
-      faviconMap.value.set(site.id, img)
+      faviconMap.value.set(site.url, img)
       parent.removeChild(favicon)
       parent.appendChild(img)
     }
     img.onerror = () => {
       const divEl = document.createElement('div')
       divEl.innerText = site.name.toLocaleUpperCase().charAt(0)
-      faviconMap.value.set(site.id, divEl)
+      faviconMap.value.set(site.url, divEl)
       parent.removeChild(favicon)
       parent.appendChild(divEl)
     }

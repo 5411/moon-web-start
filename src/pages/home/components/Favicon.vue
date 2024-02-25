@@ -20,25 +20,25 @@ const props = defineProps({
 
 const { iconStyle } = useIconStyle()
 
-const faviconMap = inject<Ref<Map<number, HTMLImageElement | HTMLDivElement>>>(FAVICON_MAP_SYMBOL)!
+const faviconMap = inject<Ref<Map<string, HTMLImageElement | HTMLDivElement>>>(FAVICON_MAP_SYMBOL)!
 
 const $faviconBox = ref<HTMLDivElement>()
 
 onMounted(() => {
-  const id = props.site.id
-  const img = faviconMap.value.get(id)
+  const url = props.site.url
+  const img = faviconMap.value.get(url)
 
   if (!img) {
     const img = new Image()
     img.src = props.site.favicon || getFaviconUrl(props.site.url)
     img.onload = () => {
       $faviconBox.value?.appendChild(img)
-      faviconMap.value.set(id, img)
+      faviconMap.value.set(url, img)
     }
     img.onerror = () => {
       const favicon = document.createElement('div')
       favicon.innerText = props.site.name.toLocaleUpperCase().charAt(0)
-      faviconMap.value.set(id, favicon)
+      faviconMap.value.set(url, favicon)
       $faviconBox.value?.appendChild(favicon)
     }
   }

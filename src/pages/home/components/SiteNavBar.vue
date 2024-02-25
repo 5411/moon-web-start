@@ -44,7 +44,7 @@ function handleDragEnd(e: any) {
     <draggable
       class="nav w-auto flex gap-x-6 w-90p sm:gap-x-12 sm:max-w-480"
       :list="siteStore.data"
-      item-key="id"
+      item-key="name"
       :component-data="{
         tag: 'div',
         type: 'transition-group',
