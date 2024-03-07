@@ -71,6 +71,10 @@ window.data = [{
       name: '旁路由',
       url: 'http://192.168.8.2/',
       favicon: 'http://192.168.8.2/static/images/logo@2x.png'
+    }, {
+      name: '打印机',
+      url: 'http://epson69f672.local/',
+      favicon: 'http://epson69f672.local./PRESENTATION/IMAGE/EPSONLOGO.PNG'
     }]
   }, {
     name: '应用',
