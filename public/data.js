@@ -59,6 +59,10 @@ window.data = [{
   }, {
     name: '网络',
     siteList: [{
+      name: '光猫',
+      url: 'http://192.168.1.1/',
+      favicon: 'http://192.168.1.1/images/cmcc_logo.gif'
+    }, {
       name: '主路由',
       url: 'http://192.168.8.1/',
       favicon: 'https://static.gl-inet.cn/www/images/logo.svg'
