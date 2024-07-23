@@ -20,7 +20,7 @@ export const useSiteStore = defineStore('site', () => {
     const _window = window as any
 
     // 剔除内网(第一项)
-    if (location.protocol === 'https:')
+    if (location.host.startsWith('www-cd'))
       _window.data.shift()
 
     if (websitePreference.value === 'ChineseMainland')
